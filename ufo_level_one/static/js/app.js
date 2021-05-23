@@ -17,6 +17,7 @@ function buildTable(tableData) {
     // previous output is cleared/overwritten from scratch 
   
     // Think of the class activities for generating tables
+    tbody.html("");
     tableData.forEach((ufoReport) => {
         let row = tbody.append("tr");
         Object.entries(ufoReport).forEach(([key, value]) => {
@@ -27,7 +28,6 @@ function buildTable(tableData) {
   }
   
   function handleClick() {
-  
     // Grab the datetime value from the filter
     let inputElement = d3.select("#datetime");
     let inputValue = inputElement.property("value");
@@ -37,6 +37,7 @@ function buildTable(tableData) {
     // grab all the table data and set to filteredData
     let filteredData = tableData.filter(d => d.datetime === inputValue);
     console.log(filteredData);
+
     // Check to see if a date was entered and filter the
     // data using that date.
     let dates = tableData.map(tableData => tableData.datetime);
@@ -54,7 +55,7 @@ function buildTable(tableData) {
     // @NOTE: If no date was entered, then filteredData will
     // just be the original tableData.
     // take your filtered data and put it into the buildTable to rebuild the table with the filtered data
-    // buildTable(filteredData);
+    buildTable(filteredData);
   };
   
   // Attach an event to listen for the form button that calls handleClick on a click of the filter button
