@@ -23,6 +23,7 @@ function buildTable(tableData) {
   };
   
   function handleClick() {
+    d3.event.preventDefault();
     // Grab the datetime value from the filter
     let inputElement = d3.select("#datetime");
     let inputValue = inputElement.property("value");
