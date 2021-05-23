@@ -7,13 +7,14 @@ This homework focused on filtering ufo sighting data by date by entering a date 
 
 The app.js file uses two functions to perform the app's actions
 * buildTable
-   *  clears any data previously entered into the table
    *  loops through each array of the ufo data array and enters the data into a bootstrap table
 
 * handleClick
+   * clears any data previously entered into the table
    * pulls the entered date from the filter search box
    * filters the ufo data and puts the new filtered data into the buildTable function
    * if the entered date does not exist, the table is blank and a new header "This data does not exist" is displayed on the page
+   * if the search box is empty the full table is displayed
 
 **The complete data table is displayed when the page loads**
 
