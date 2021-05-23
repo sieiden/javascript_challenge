@@ -12,12 +12,10 @@ let tbody = d3.select("tbody");
 console.log(tableData);
 
 function buildTable(tableData) {
-    // When the page loads, it needs to display the table
-    // But if the table reloads then you may need to ensure the 
-    // previous output is cleared/overwritten from scratch 
-  
-    // Think of the class activities for generating tables
+    //clear any previous data put into the table
     tbody.html("");
+
+    //enter data into table
     tableData.forEach((ufoReport) => {
         let row = tbody.append("tr");
         Object.entries(ufoReport).forEach(([key, value]) => {
@@ -25,7 +23,7 @@ function buildTable(tableData) {
           cell.text(value);
         });
       });
-  }
+  };
   
   function handleClick() {
     // Grab the datetime value from the filter
@@ -44,17 +42,14 @@ function buildTable(tableData) {
     if (dates.includes(inputValue)) {
         console.log(filteredData);
         console.log("if statement works");
-        // buildTable(filteredData);
+        d3.select(".filter_error").text("");
     }
     else {
-        // d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
+        d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
         console.log("That date does not exist");
     }
 
     // Rebuild the table using the filtered data
-    // @NOTE: If no date was entered, then filteredData will
-    // just be the original tableData.
-    // take your filtered data and put it into the buildTable to rebuild the table with the filtered data
     buildTable(filteredData);
   };
   
