@@ -40,14 +40,15 @@ function buildTable(tableData) {
     // Check to see if a date was entered and filter the
     // data using that date.
     let dates = tableData.map(tableData => tableData.datetime);
-    console.log(dates);
-    // if (inputValue in dates) {
-    //     console.log(filteredData);
-    //     buildTable(filteredData);
-    // }
-    // else {
-    //     d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
-    // }
+    if (dates.includes(inputValue)) {
+        console.log(filteredData);
+        console.log("if statement works");
+        // buildTable(filteredData);
+    }
+    else {
+        // d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
+        console.log("That date does not exist");
+    }
 
     // Rebuild the table using the filtered data
     // @NOTE: If no date was entered, then filteredData will
