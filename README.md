@@ -1,7 +1,7 @@
 # javascript_challenge
 JavaScript HW for NW Bootcamp
 
-This homework focused on filtering ufo sighting data by date by entering a date into a form and clicking a filter table button. The homework included two parts outlined below.
+This homework focused on filtering ufo sighting data by date by entering a date into a form and clicking a filter table button. The homework included two parts outlined below. To run the files use a source code editor (ex. VS Code) and your local server/default browser.
 
 # **UFO Level One**
 
@@ -28,3 +28,5 @@ The app.js file uses two functions to perform the app's actions
 ![error_message](https://user-images.githubusercontent.com/68086211/119266796-c98d0580-bbb1-11eb-8a63-9606b768e139.png)
 
 **If not date is entered, the entire table is displayed**
+
+![empty_search](https://user-images.githubusercontent.com/68086211/119267432-31445000-bbb4-11eb-8485-bfa2ca28e50a.png)
