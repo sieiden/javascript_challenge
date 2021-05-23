@@ -64,24 +64,62 @@ function buildTable(tableData) {
       if(cities.includes(cityValue)){
         if(states.includes(stateValue)){
           if(countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.state === stateValue && d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.state === stateValue && d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.state === stateValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if(!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.state === stateValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if(shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.state === stateValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.state === stateValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
@@ -93,24 +131,62 @@ function buildTable(tableData) {
         }
         else if (stateValue === ""){
           if (countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
@@ -131,24 +207,62 @@ function buildTable(tableData) {
       else if (cityValue === ""){
         if (states.includes(stateValue)){
           if (countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.state === stateValue && d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if(shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.state === stateValue && d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if(shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.state === stateValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if(!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.state === stateValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.state === stateValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.state === stateValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
@@ -160,24 +274,62 @@ function buildTable(tableData) {
         }
         else if (stateValue === ""){
           if(countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue && d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
-          }
+            if(shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if(shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+              }
+            }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.datetime === dateValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.datetime === dateValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
@@ -207,24 +359,62 @@ function buildTable(tableData) {
       if(cities.includes(cityValue)){
         if(states.includes(stateValue)){
           if(countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.city === cityValue && d.state === stateValue && d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.state === stateValue && d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.state === stateValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.city === cityValue && d.state === stateValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if(shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.state === stateValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.state === stateValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
@@ -236,24 +426,62 @@ function buildTable(tableData) {
         }
         else if (stateValue === ""){
           if (countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.city === cityValue && d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if(countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.city === cityValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if(shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if(shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.city === cityValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if(!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if(!countries.includes(countryValue)){
             //clears table data if exists
@@ -274,24 +502,62 @@ function buildTable(tableData) {
       else if (cityValue === ""){
         if (states.includes(stateValue)){
           if (countries.includes(countryValue)){
+            if (shapes.includes(shapeValue)){
             //clears error message if exists
             d3.select(".filter_error").text("");
             //clears table data if exists
             tbody.html("");
             //creates filter
-            filteredData = tableData.filter(d => d.state === stateValue && d.country === countryValue);
+            filteredData = tableData.filter(d => d.state === stateValue && d.country === countryValue && d.shape === shapeValue);
             //prints filtered data to console
             console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.state === stateValue && d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.state === stateValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if(shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.state === stateValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.state === stateValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
@@ -303,24 +569,62 @@ function buildTable(tableData) {
         }
         else if (stateValue === ""){
           if (countries.includes(countryValue)){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData.filter(d => d.country === countryValue);
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.country === countryValue && d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.country === countryValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (countryValue === ""){
-            //clears error message if exists
-            d3.select(".filter_error").text("");
-            //clears table data if exists
-            tbody.html("");
-            //creates filter
-            filteredData = tableData;
-            //prints filtered data to console
-            console.log(filteredData);
+            if (shapes.includes(shapeValue)){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData.filter(d => d.shape === shapeValue);
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (shapeValue === ""){
+              //clears error message if exists
+              d3.select(".filter_error").text("");
+              //clears table data if exists
+              tbody.html("");
+              //creates filter
+              filteredData = tableData
+              //prints filtered data to console
+              console.log(filteredData);
+            }
+            else if (!shapes.includes(shapeValue)){
+              //clears table data if exists
+              tbody.html("");
+              //prints error message on page
+              d3.select(".filter_error").text("That shape doesn't exist in our data. Enter a new shape");
+              console.log("That shape does not exist");
+            }
           }
           else if (!countries.includes(countryValue)){
             //clears table data if exists
