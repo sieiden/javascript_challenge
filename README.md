@@ -31,3 +31,6 @@ The app.js file uses two functions to perform the app's actions
 **If not date is entered, the entire table is displayed**
 
 ![empty_search](https://user-images.githubusercontent.com/68086211/119267432-31445000-bbb4-11eb-8485-bfa2ca28e50a.png)
+
+# **UFO Level Two**
+UFO level two contains the same two functions as part 1. However, the page now has 5 different filters that can be used to filter the data. Please input the date as M/D/YYYY and any text in lower case (ex. us for United States, ar for Arkansas and benton for Benton, AR).
