@@ -12,9 +12,6 @@ let tbody = d3.select("tbody");
 console.log(tableData);
 
 function buildTable(tableData) {
-    //clear any previous data put into the table
-    tbody.html("");
-
     //enter data into table
     tableData.forEach((ufoReport) => {
         let row = tbody.append("tr");
@@ -42,9 +39,19 @@ function buildTable(tableData) {
     if (dates.includes(inputValue)) {
         console.log(filteredData);
         console.log("if statement works");
+        //clears error message if exists
         d3.select(".filter_error").text("");
+        //clears any previous data in table
+        tbody.html("");
     }
-    else {
+    else if (inputValue === ""){
+        //clears error message if exists
+        d3.select(".filter_error").text("");
+        //loads original data (no filter) into table
+        buildTable(tableData);
+    }
+    else if (!dates.includes(inputValue)){
+        tbody.html("");
         d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
         console.log("That date does not exist");
     }
