@@ -27,4 +27,4 @@ The app.js file uses two functions to perform the app's actions
 
 ![error_message](https://user-images.githubusercontent.com/68086211/119266796-c98d0580-bbb1-11eb-8a63-9606b768e139.png)
 
-** If not date is entered, the entire table is displayed**
+**If not date is entered, the entire table is displayed**
