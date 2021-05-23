@@ -24,39 +24,110 @@ function buildTable(tableData) {
   
   function handleClick() {
     d3.event.preventDefault();
-    // Grab the datetime value from the filter
-    let inputElement = d3.select("#datetime");
-    let inputValue = inputElement.property("value");
     
-    console.log(inputValue);
-  
-    // grab all the table data and set to filteredData
-    let filteredData = tableData.filter(d => d.datetime === inputValue);
-    console.log(filteredData);
+    // Grab the datetime value from the filter
+    let dateElement = d3.select("#datetime");
+    let dateValue = dateElement.property("value");
+    console.log(dateValue);
 
-    // Check to see if a date was entered and filter the
-    // data using that date.
+    //Grab the city value from the filter
+    let cityElement = d3.select("#cityname");
+    let cityValue = cityElement.property("value");
+    console.log(cityValue);
+
+    //Grab the state value from the filter
+    let stateElement = d3.select("#cityname");
+    let stateValue = stateElement.property("value");
+    console.log(stateValue);
+
+    //Grab the country value from the filter
+    let countryElement = d3.select("#cityname");
+    let countryValue = countryElement.property("value");
+    console.log(countryValue);
+
+    //Grab the shape value from the filter
+    let shapeElement = d3.select("#cityname");
+    let shapeValue = shapeElement.property("value");
+    console.log(shapeValue);
+
+    //Grab all data from table
+    let filteredData = [];
+
+    // Check to see if a value/values was/were entered and filter the
+    // data using that/those value(s).
     let dates = tableData.map(tableData => tableData.datetime);
-    if (dates.includes(inputValue)) {
+    let cities = tableData.map(tableData => tableData.city);
+    let states = tableData.map(tableData => tableData.state);
+    let countries = tableData.map(tableData => tableData.country);
+    let shapes = tableData.map(tableData => tableData.shape);
+    if (dates.includes(dateValue)){
+      if(cities.includes(cityValue)){
+        //clears error message if exists
+        d3.select(".filter_error").text("");
+        //clears table data if exists
+        tbody.html("");
+        //creates filter
+        filteredData = tableData.filter(d => d.datetime === dateValue && d.city === cityValue);
+        //prints filtered data to console
         console.log(filteredData);
-        console.log("if statement works");
+      }
+      else if (cityValue === ""){
         //clears error message if exists
         d3.select(".filter_error").text("");
-        //clears any previous data in table
+        //clears table data if exists
         tbody.html("");
+        //creates filter
+        filteredData = tableData.filter(d => d.datetime === dateValue);
+        //prints filtered data to console
+        console.log(filteredData);
+      }
+      else if(!cities.includes(cityValue)){
+        //clears table data if exists
+        tbody.html("");
+        //prints error message on page
+        d3.select(".filter_error").text("That city doesn't exist in our data. Enter a new city");
+        console.log("That city does not exist");
+      }
     }
-    else if (inputValue === ""){
+    else if (dateValue === ""){
+      if(cities.includes(cityValue)){
         //clears error message if exists
         d3.select(".filter_error").text("");
-        //loads original data (no filter) into table
-        buildTable(tableData);
-    }
-    else if (!dates.includes(inputValue)){
+        //clears table data if exists
         tbody.html("");
-        d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
-        console.log("That date does not exist");
+        //creates filter
+        filteredData = tableData.filter(d => d.city === cityValue);
+        //prints filtered data to console
+        console.log(filteredData);
+      }
+      else if (cityValue === ""){
+        //clears error message if exists
+        d3.select(".filter_error").text("");
+        //clears table data if exists
+        tbody.html("");
+        //creates filter
+        filteredData = tableData;
+        //prints filtered data to console
+        console.log(filteredData);
+      }
+      else if(!cities.includes(cityValue)){
+        //clears table data if exists
+        tbody.html("");
+        //prints error message on page
+        d3.select(".filter_error").text("That city doesn't exist in our data. Enter a new city");
+        console.log("That city does not exist");
+      } 
+      //prints filtered data to console
+      // console.log(filteredData);
     }
-
+    else if(!dates.includes(dateValue)){
+      //clears table data if exists
+      tbody.html("");
+      //prints error message on page
+      d3.select(".filter_error").text("That date doesn't exist in our data. Enter a new date");
+      console.log("That date does not exist");
+    }
+  
     // Rebuild the table using the filtered data
     buildTable(filteredData);
   };
@@ -67,4 +138,3 @@ function buildTable(tableData) {
   
   // Build the table when the page loads
   buildTable(tableData);
-  
