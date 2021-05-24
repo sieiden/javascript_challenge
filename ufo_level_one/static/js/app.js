@@ -46,7 +46,9 @@ function buildTable(tableData) {
         tbody.html("");
     }
     else if (inputValue === ""){
-        //clears error message if exists
+      //clears table if exists
+      tbody.html(""); 
+      //clears error message if exists
         d3.select(".filter_error").text("");
         //loads original data (no filter) into table
         buildTable(tableData);
